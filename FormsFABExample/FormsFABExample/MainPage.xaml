@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FormsFABExample.MainPage"
+             xmlns:androidWidget="clr-namespace:Android.Widget;assembly=Mono.Android;targetPlatform=Android"
+             xmlns:formsandroid="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Platform.Android;targetPlatform=Android"
+             xmlns:androidLocal="clr-namespace:FormsFABExample.Droid;assembly=FormsFABExample.Android;targetPlatform=Android"
+		     >
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Forms Label"/>
+            <Switch IsToggled="{Binding OnAndOff}"/>
+            <RelativeLayout HorizontalOptions="End" VerticalOptions="End" Padding="5,5,5,5">
+                <androidLocal:MyFloatingActionButton 
+                    x:Arguments="{x:Static formsandroid:Forms.Context}"
+                    ToggleSwitch ="{Binding OnAndOff, Mode=TwoWay,  UpdateSourceEventName=Click }"
+                    />
+            </RelativeLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
