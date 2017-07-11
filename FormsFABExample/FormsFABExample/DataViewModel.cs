@@ -10,6 +10,15 @@ namespace FormsFABExample
 {
     public class DataViewModel : INotifyPropertyChanged
     {
+        public event EventHandler OnButtonClick;
+        public bool IsClicked
+        {
+            set
+            {
+                OnButtonClick?.Invoke(this, EventArgs.Empty);
+            }
+        }
+        
         private bool _toggleOnOff = true;
         public bool OnAndOff
         {
@@ -30,5 +39,6 @@ namespace FormsFABExample
             var handle = PropertyChanged;
             handle?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
     }
 }

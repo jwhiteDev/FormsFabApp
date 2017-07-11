@@ -9,10 +9,18 @@ namespace FormsFABExample
 {
     public partial class MainPage : ContentPage
     {
+        private DataViewModel vm;
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new DataViewModel();
+            vm = new DataViewModel();
+            this.BindingContext = vm;
+            vm.OnButtonClick += HandleButtonClick;
+        }
+
+        async void HandleButtonClick(object sender, EventArgs e)
+        {
+            await DisplayAlert("Button Click!", "Button Was Clicked", "OK");
         }
     }
 }

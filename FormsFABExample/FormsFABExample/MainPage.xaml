@@ -10,10 +10,16 @@
         <StackLayout>
             <Label Text="Forms Label"/>
             <Switch IsToggled="{Binding OnAndOff}"/>
-            <RelativeLayout HorizontalOptions="End" VerticalOptions="End" Padding="5,5,5,5">
+            <RelativeLayout HorizontalOptions="End">
                 <androidLocal:MyFloatingActionButton 
                     x:Arguments="{x:Static formsandroid:Forms.Context}"
                     ToggleSwitch ="{Binding OnAndOff, Mode=TwoWay,  UpdateSourceEventName=Click }"
+                    />
+            </RelativeLayout>
+            <RelativeLayout HorizontalOptions="End" VerticalOptions="End" Padding="5,5,5,5">
+                <androidLocal:MyFloatingActionButton 
+                    x:Arguments="{x:Static formsandroid:Forms.Context}"
+                    ToggleSwitch ="{Binding IsClicked, Mode=TwoWay, UpdateSourceEventName=Click }"
                     />
             </RelativeLayout>
         </StackLayout>
